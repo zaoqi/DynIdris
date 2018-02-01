@@ -14,4 +14,16 @@
 --    You should have received a copy of the GNU Affero General Public License
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 module Dyn
+data PairO : Type -> Type -> Type where
+	Cons : Lazy a -> Lazy b -> PairO a b
+
+cons : Lazy a -> Lazy b -> PairO a b
+cons = Cons
+car : PairO a d -> a
+car (Cons a d) = a
+cdr : PairO a d -> d
+cdr (Cons a d) = d
+
+interface PairI x where
+PairI (PairO a d) where
 
