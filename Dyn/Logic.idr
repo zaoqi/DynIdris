@@ -14,4 +14,10 @@
 --    You should have received a copy of the GNU Affero General Public License
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 module Dyn
-
+--Logic
+interface AddO (a : Nat) (b : Nat) (c : Nat) where
+AddO Z x x where
+AddO x y z => AddO (S x) y (S z) where
+data Ra : Nat -> Type where
+	Ka : AddO Z (S Z) a => Ra a
+-- the (Ra 1) Ka
